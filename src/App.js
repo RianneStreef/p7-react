@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import React , { useState }  from 'react';
+import Header from './Header/Header'
+import Login from './Login/Login'
+import SignUp from './SignUp/SignUp'
+import ArticleDisplay from './ArticleDisplay/ArticleDisplay'
+
 
 function App() {
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isSignedUp, setSignUp] = useState(false)
+
+
+  function changeLogin() {
+    setLoggedIn(!isLoggedIn);
+  }
+
+    function changeSignUp() {
+    setSignUp(!isSignedUp);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='wrapper'>
+    <Header></Header>
+
+    <button onClick={changeLogin}>Change Login</button>
+
+    {isLoggedIn ? (
+        <ArticleDisplay />
+      ) : (isSignedUp ? ( <SignUp /> ) : <Login />)}
+      
+      {!isLoggedIn ? (
+          <button onClick={changeSignUp}> { !isSignedUp ? (<p>Sign Up</p> ) : <p>Log In</p> } </button> 
+      ) : null }
+
+
     </div>
   );
 }
