@@ -9,16 +9,17 @@ import ArticleDisplay from './ArticleDisplay/ArticleDisplay'
 function App() {
 
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [isSignedUp, setSignUp] = useState(false)
+  const [isSignedUp, setSignUp]= useState(false)
 
 
   function changeLogin() {
     setLoggedIn(!isLoggedIn);
   }
 
-    function changeSignUp() {
+  function changeSignUp() {
     setSignUp(!isSignedUp);
   }
+
 
 
   return (
@@ -28,13 +29,15 @@ function App() {
     <button onClick={changeLogin}>Change Login</button>
 
     {isLoggedIn ? (
-        <ArticleDisplay />
+        <ArticleDisplay isLoggedIn={isLoggedIn} isSignedUp={isSignedUp}/>
       ) : (isSignedUp ? ( <SignUp /> ) : <Login />)}
       
-      {!isLoggedIn ? (
+      {/* {isLoggedIn && <ArticleDisplay isLoggedIn={isLoggedIn} isSignedUp={isSignedUp />}
+      {isLoggedIn && (isSignedUp ? <SignUp /> : <Login />)} */}
+
+    {!isLoggedIn ? (
           <button onClick={changeSignUp}> { !isSignedUp ? (<p>Sign Up</p> ) : <p>Log In</p> } </button> 
       ) : null }
-
 
     </div>
   );
