@@ -1,23 +1,41 @@
-import React , { useState }  from 'react';
+import React, { useState } from 'react';
 import './Header.css';
-import companyLogo from '../img/icon-black.png'
+import companyLogo from '../img/icon-black.png';
 
-function Header () {
+React.createElement('div', { name: 'Rianne', lesson: 'React' }, []);
 
-  const [isSignedUp, setSignUp] = useState(false)
-  const [isLoggedIn] = useState(false);
+function Header(props) {
+  const {
+    handleLogin,
+    handleSignup,
+    isSignedUp,
+    setSignUp,
+    currentUserForm,
+    setUserToShow,
+    setUserForm,
+  } = props;
 
-
-  function changeSignUp() {
-    setSignUp(!isSignedUp);
-  }
+  /* function NotLoggedInUser() {
+    return (
+      <div>
+        {isSignedUp ? (
+          <button onClick={handleLogin}>Login</button>
+        ) : (
+          <button onClick={handleSignup}>Sign up</button>
+        )}
+      </div>
+    );
+  } */
 
   return (
-    
-  <header><div className='logo'></div> Connect - E  {!isLoggedIn ? (
-    <button onClick={changeSignUp}> { !isSignedUp ? (<p>Sign Up</p> ) : <p>Log In</p> } </button> 
-) : null }
-</header> 
+    <header>
+      <div className="logo"></div> Connect - E{/* <NotLoggedInUser /> */}
+      {currentUserForm === 'SIGNUP' ? (
+        <button onClick={() => setUserForm('LOGIN')}>Login</button>
+      ) : (
+        <button onClick={() => setUserForm('SIGNUP')}>Signup</button>
+      )}
+    </header>
   );
 }
 
