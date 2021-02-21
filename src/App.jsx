@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './App.css';
 import React, { useState } from 'react';
 import Header from './Header/Header';
@@ -18,12 +19,22 @@ function App() {
     setSignUp(!isSignedUp);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Add API call, or function
+    // that does API call
+    console.log('Parent submit');
+  }
+
   return (
     <div className="wrapper">
-      <Header></Header>
-      <Form />
-      <button onClick={changeLogin}>Change Login</button>
+      <Header />
+      <Form handleSubmit={handleSubmit} />
+      <button type="button" onClick={changeLogin}>
+        Change Login
+      </button>
 
+      {/* eslint-disable-next-line no-nested-ternary */}
       {isLoggedIn ? (
         <ArticleDisplay isLoggedIn={isLoggedIn} isSignedUp={isSignedUp} />
       ) : isSignedUp ? (
@@ -36,9 +47,8 @@ function App() {
       {isLoggedIn && (isSignedUp ? <SignUp /> : <Login />)} */}
 
       {!isLoggedIn ? (
-        <button onClick={changeSignUp}>
-          {' '}
-          {!isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}{' '}
+        <button type="button" onClick={changeSignUp}>
+          {!isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
         </button>
       ) : null}
     </div>

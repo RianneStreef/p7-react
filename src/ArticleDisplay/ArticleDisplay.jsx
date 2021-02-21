@@ -1,31 +1,27 @@
+/* eslint-disable */
 import React from 'react';
 import { articles } from '../mock-data/mock-data';
-import Article from '../Article/Article'
+import Article from '../Article/Article';
 import './ArticleDisplay.css';
 
-
-function ArticleDisplay () {
-
-
+function ArticleDisplay() {
   // console.log(isLoggedIn)
   // console.log(isSignedUp)
 
   return (
-    <div className='article-display'>
-    <h1>Articles</h1>
-      { articles.map((article, index) => (
-        <Article 
-        key={index}
-        title={article.title}
-        description={article.description}
-        usersLiked={article.usersLiked}
-        usersDisliked={article.usersDisliked}
+    <div className="article-display">
+      <h1>Articles</h1>
+      {articles.map((article, index) => (
+        <Article
+          key={index}
+          title={article.title}
+          description={article.description}
+          usersLiked={article.usersLiked}
+          usersDisliked={article.usersDisliked}
         />
-    ))}
+      ))}
     </div>
   );
-};
+}
 
-
-
-export default ArticleDisplay
+export default ArticleDisplay;

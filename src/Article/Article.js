@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import './Article.css';
 
@@ -5,11 +6,9 @@ import './Article.css';
 
 //   console.log(articles);
 
-
-
 //   return (
 //     <div>
-//     <h2>Name</h2> 
+//     <h2>Name</h2>
 //     <div>id</div>
 //     </div>
 //   )
@@ -20,15 +19,15 @@ import './Article.css';
 export default function displayArticles(articles) {
   const title = articles.title;
   const description = articles.description;
-  const usersLiked = articles.usersLiked
-  const usersDisliked = articles.usersDisliked
- 
+  const usersLiked = articles.usersLiked;
+  const usersDisliked = articles.usersDisliked;
+
   return (
     <div className="article-container">
       {/* <a href='http://www.google.com'>  */}
       <h3>{title}</h3>
       <div>{description}</div>
-            {/* </a> */}
+      {/* </a> */}
 
       <i class="far fa-thumbs-up"></i>
       <span>{usersLiked.length}</span>
