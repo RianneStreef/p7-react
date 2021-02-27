@@ -5,11 +5,9 @@ import './Article.css';
 
 //   console.log(articles);
 
-
-
 //   return (
 //     <div>
-//     <h2>Name</h2> 
+//     <h2>Name</h2>
 //     <div>id</div>
 //     </div>
 //   )
@@ -18,21 +16,19 @@ import './Article.css';
 // export default displayArticles
 
 export default function displayArticles(articles) {
-  const title = articles.title;
-  const description = articles.description;
-  const usersLiked = articles.usersLiked
-  const usersDisliked = articles.usersDisliked
- 
+  const {
+    title, description, usersLiked, usersDisliked,
+  } = articles;
   return (
     <div className="article-container">
       {/* <a href='http://www.google.com'>  */}
       <h3>{title}</h3>
       <div>{description}</div>
-            {/* </a> */}
+      {/* </a> */}
 
-      <i class="far fa-thumbs-up"></i>
+      <i className="far fa-thumbs-up" />
       <span>{usersLiked.length}</span>
-      <i class="far fa-thumbs-down"></i>
+      <i className="far fa-thumbs-down" />
       <span>{usersDisliked.length}</span>
     </div>
   );

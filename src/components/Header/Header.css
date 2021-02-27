@@ -11,12 +11,12 @@ header {
   height: 80px;
   width: 80px;
   margin-top: auto;
-  background-image: url("../img/icon-black.png");
+  background-image: url('../../img/icon-black.png');
   background-size: cover;
   transition: background-image 400ms ease-in;
 }
 
 .logo:hover {
-  background-image: url("../img/icon-red.png");
+  background-image: url('../../img/icon-red.png');
   transition: background-image 400ms ease-in;
 }
