@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import SignUp from '../SignUp/SignUp';
 import Login from '../Login/Login';
 
-function FormToDisplay() {
-  const [isSignedUp] = useState();
-  console.log(isSignedUp);
+/* const FormToDisplay = ({ isSignedUp }) => (
+  <div>{isSignedUp ? <SignUp /> : <Login />}</div>
+); */
 
-  return (
-    <div>
-      { isSignedUp ? (
-        <SignUp />
-      ) : (
-        <Login />
-      )}
-    </div>
-  );
+function FormToDisplay({ isSignedUp }) {
+  // const { isSignedUp } = props;
+  return <div>{!isSignedUp ? <SignUp /> : <Login />}</div>;
 }
 
 export default FormToDisplay;

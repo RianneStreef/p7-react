@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import './Header.css';
 
-function Header() {
-  const [isSignedUp, setSignUp] = useState(false);
-  const [isLoggedIn] = useState(false);
+function Header(props) {
+  const { isSignedUp, setSignUp, isLoggedIn } = props;
 
   function changeSignUp() {
     setSignUp(!isSignedUp);
   }
 
   return (
-    <header>
+    <header data-testid="header">
       <div className="logo" />
       Connect - E
-      {' '}
       {!isLoggedIn ? (
-        <button type="button" onClick={changeSignUp}>
-          {' '}
-          {!isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
-          {' '}
+        <button
+          type="button"
+          onClick={changeSignUp}
+          data-testid="button-header"
+        >
+          {isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
         </button>
       ) : null}
     </header>

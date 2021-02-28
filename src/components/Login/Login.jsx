@@ -8,7 +8,6 @@ function Login() {
     email: '',
     password: '',
   });
-
   const handleInput = (event) => {
     setUserDetails((prevState) => {
       const loginDetails = {
@@ -19,20 +18,34 @@ function Login() {
     });
   };
 
+  const { email, password } = userDetails;
+
   return (
-    <div className="login">
+    <div className="login" data-testid="test-form-login">
       <h1>Login</h1>
       <form>
         <div className="form-group">
           <label htmlFor="email">
             Email:
-            <input type="email" id="email" name="email" value={email} onChange={handleInput} />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleInput}
+            />
           </label>
         </div>
         <div className="form-group">
           <label htmlFor="password">
             Password:
-            <input type="text" id="password" name="password" value={password} onChange={handleInput} />
+            <input
+              type="text"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handleInput}
+            />
           </label>
         </div>
         <div className="button-container">
@@ -42,5 +55,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;

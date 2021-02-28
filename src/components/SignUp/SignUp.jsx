@@ -3,7 +3,7 @@ import './SignUp.css';
 
 function signUp() {
   return (
-    <div className="sign-up">
+    <div className="sign-up" data-testid="test-form-signup">
       <h1>Sign Up</h1>
       <form>
         <div className="form-group">
@@ -36,7 +36,6 @@ function signUp() {
         </div>
       </form>
     </div>
-
   );
 }
 

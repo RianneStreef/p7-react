@@ -41,9 +41,12 @@ function App() {
         showUserForm={currentUserForm}
         currentUserForm={currentUserForm}
         setUserForm={setUserForm}
+        isLoggedIn={isLoggedIn}
       />
 
-      <button type="button" onClick={changeLogin}>Change Login</button>
+      <button type="button" onClick={changeLogin}>
+        Change Login
+      </button>
 
       {isLoggedIn ? (
         <ArticleDisplay
@@ -52,16 +55,11 @@ function App() {
           articles={articles}
         />
       ) : (
-        <FormToDisplay
-          isLoggedIn={isLoggedIn}
-          isSignedUp={isSignedUp}
-        />
+        <FormToDisplay isLoggedIn={isLoggedIn} isSignedUp={isSignedUp} />
       )}
       {!isLoggedIn ? (
         <button type="button" onClick={changeSignUp}>
-          {' '}
           {!isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
-          {' '}
         </button>
       ) : null}
     </div>
