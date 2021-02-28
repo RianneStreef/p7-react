@@ -1,39 +1,32 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable no-undef */
-
+import React from 'react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 
-const {
-  render,
-  getByTestId,
-  screen,
-  fireEvent,
-} = require('@testing-library/react');
+const { render, screen, within } = require('@testing-library/react');
 
 function setupTest() {
   render(<App />);
-  const header = screen.getByTestId('header');
-  const button = screen.getByTestId('button-header');
-  return { header, button };
 }
 
 describe('Header', () => {
   it('should load the header', () => {
-    const { header } = setupTest();
+    setupTest();
+    const header = screen.getByTestId('header');
     expect(header).toBeInTheDocument();
   });
 
   it('should have button change between signup and login on click', () => {
-    const { button } = setupTest();
-    expect(button.textContent.toLowerCase()).toEqual('sign up');
+    setupTest();
+    const header = screen.getByTestId('header');
+    const { getByText } = within(header);
+    const button = getByText(/sign up/i);
     userEvent.click(button);
     expect(button.textContent.toLowerCase()).toEqual('log in');
   });
 
   it('should change forms when clicked', () => {
-    const { button } = setupTest();
+    setupTest();
+    const button = screen.getByTestId('button-header');
     expect(button.textContent.toLowerCase()).toEqual('sign up');
     screen.getByTestId('test-form-login');
     userEvent.click(button);

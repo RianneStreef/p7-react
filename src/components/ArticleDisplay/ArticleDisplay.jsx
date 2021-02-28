@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import articles from '../../mock-data/mock-data';
 import Article from '../Article/Article';
@@ -15,10 +13,7 @@ function ArticleDisplay() {
     { quantity: 1 },
   ];
 
-  // eslint-disable-next-line array-callback-return
-  const newItems = items.map((item, index) => {
-    return { ...item, id: index };
-  });
+  const newItems = items.map((item, index) => ({ ...item, id: index }));
 
   return (
     <div className="article-display">
