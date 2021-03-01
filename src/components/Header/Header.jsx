@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
+import LoggedInButtons from '../LoggedInButtons/LoggedInButtons';
 
-function Header() {
-  const [isSignedUp, setSignUp] = useState(false);
-  const [isLoggedIn] = useState(false);
+function Header(props) {
+  const { isSignedUp, setSignUp, isLoggedIn, setLoggedIn, showProfile, openProfile } = props;
 
   function changeSignUp() {
     setSignUp(!isSignedUp);
   }
 
   return (
-    <header>
+    <header data-testid="header">
       <div className="logo" />
       Connect - E
-      {' '}
       {!isLoggedIn ? (
-        <button type="button" onClick={changeSignUp}>
-          {' '}
-          {!isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
-          {' '}
+        <button
+          type="button"
+          onClick={changeSignUp}
+          data-testid="button-header"
+        >
+          {isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
         </button>
-      ) : null}
+      ) : (<LoggedInButtons
+            data-testid="test-logged-in-buttons"
+            showProfile={showProfile}
+            openProfile={openProfile}
+            isLoggedIn={isLoggedIn}
+            setLoggedIn={setLoggedIn}
+       />)}
     </header>
   );
 }

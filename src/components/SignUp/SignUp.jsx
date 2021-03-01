@@ -19,15 +19,15 @@ function signUp() {
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="name">
-            Name:
-            <input type="text" id="name" name="name" />
+          <label htmlFor="first-name">
+            First name:
+            <input type="text" id="first-name" name="first-name" />
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="email">
+          <label htmlFor="last-name">
             Email:
-            <input type="email" id="email" name="email" />
+            <input type="text" id="last-name" name="last-name" />
           </label>
         </div>
 

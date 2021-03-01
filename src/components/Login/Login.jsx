@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import './Login.css';
 
@@ -18,6 +16,8 @@ function Login() {
       return loginDetails;
     });
   };
+
+  const { email, password } = userDetails;
 
   return (
     <div className="login">

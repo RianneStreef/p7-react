@@ -1,22 +1,20 @@
-import './App.css';
+// import '../App.css';
 import React, { useState, useEffect } from 'react';
+import './App.css'
 import Header from './components/Header/Header';
 import FormToDisplay from './components/FormToDisplay/FormToDisplay';
-import ArticleDisplay from './components/ArticleDisplay/ArticleDisplay';
+import LoggedInDisplay from './components/LoggedInDisplay/LoggedInDisplay';
 import MockArticles from './mock-data/mock-data';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isSignedUp, setSignUp] = useState(true);
-  const [currentUserForm, setUserForm] = useState('LOGIN');
   const [articles, setArticles] = useState([]);
+  const [showProfile, openProfile] = useState(false);
 
   function changeLogin() {
     setLoggedIn(!isLoggedIn);
-  }
-
-  function changeSignUp() {
-    setSignUp(!isSignedUp);
+    console.log(isLoggedIn);
   }
 
   useEffect(() => {
@@ -24,9 +22,9 @@ function App() {
     //    function.
     // fetchData() function will add the API call data to your state
     function fetchData() {
-      /* fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((response) => response.json())
-        .then((json) => setArticles(json)); */
+      // fetch('http://localhost:3000/api/articles')
+      //   .then((response) => response.json())
+      //   .then((json) => setArticles(json));
       setArticles(MockArticles);
     }
 
@@ -36,34 +34,29 @@ function App() {
   return (
     <div className="wrapper">
       <Header
+        data-testid="test-header-component"
         isSignedUp={isSignedUp}
         setSignUp={setSignUp}
-        showUserForm={currentUserForm}
-        currentUserForm={currentUserForm}
-        setUserForm={setUserForm}
+        isLoggedIn={isLoggedIn}
+        showProfile={showProfile}
+        openProfile={openProfile}
       />
 
-      <button type="button" onClick={changeLogin}>Change Login</button>
+      <button data-testid="test-login-status-button" type="button" onClick={changeLogin}>
+        Change Login
+      </button>
 
       {isLoggedIn ? (
-        <ArticleDisplay
+        <LoggedInDisplay
+          data-testid="test-logged-in-component"
           isLoggedIn={isLoggedIn}
           isSignedUp={isSignedUp}
           articles={articles}
+          showProfile={showProfile}
         />
       ) : (
-        <FormToDisplay
-          isLoggedIn={isLoggedIn}
-          isSignedUp={isSignedUp}
-        />
+        <FormToDisplay isLoggedIn={isLoggedIn} isSignedUp={isSignedUp} />
       )}
-      {!isLoggedIn ? (
-        <button type="button" onClick={changeSignUp}>
-          {' '}
-          {!isSignedUp ? <p>Sign Up</p> : <p>Log In</p>}
-          {' '}
-        </button>
-      ) : null}
     </div>
   );
 }

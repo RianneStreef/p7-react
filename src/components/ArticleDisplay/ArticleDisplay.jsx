@@ -7,9 +7,10 @@ function ArticleDisplay() {
   return (
     <div className="article-display">
       <h1>Articles</h1>
+      <button type="button">Add Article</button>
       { articles.map((article) => (
         <Article
-          key={article.index}
+          key={article.id}
           title={article.title}
           description={article.description}
           usersLiked={article.usersLiked}

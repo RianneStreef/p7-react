@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SignUp from '../SignUp/SignUp';
 import Login from '../Login/Login';
 
-function FormToDisplay() {
-  const [isSignedUp] = useState();
-  console.log(isSignedUp);
-
-  return (
-    <div>
-      { isSignedUp ? (
-        <SignUp />
-      ) : (
-        <Login />
-      )}
-    </div>
-  );
+function FormToDisplay(props) {
+  const { isSignedUp } = props;
+  return <div>{isSignedUp ?  <Login /> : <SignUp /> }</div>;
 }
 
 export default FormToDisplay;
