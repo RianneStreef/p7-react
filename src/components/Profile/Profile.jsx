@@ -1,9 +1,15 @@
 import React from 'react';
+import ShowProfile from '../ShowProfile/ShowProfile'
+import EditProfile from '../EditProfile/EditProfile'
 
-function Profile() {
+function Profile(props) {
+  const { editProfile, changeProfileDetails } = props;
   return (
-    <h1>This will show my profile</h1>
-  )
+    <div>
+      <h1>Profile</h1>
+      <div>{editProfile ?  <EditProfile editProfile={editProfile} changeProfileDetails={changeProfileDetails} /> : <ShowProfile editProfile={editProfile} changeProfileDetails={changeProfileDetails}  /> }</div>
+    </div>
+  );
 }
 
 export default Profile;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function LoggedInButtons(props) {
-  const { isLoggedIn, setLoggedIn, showProfile, openProfile} = props;
+  const { isLoggedIn, setLoggedIn, changeLogin, showProfile, openProfile} = props;
   function setProfile() {
     openProfile(!showProfile);
     console.log('Showing Profile');
@@ -19,7 +19,7 @@ function LoggedInButtons(props) {
       </button>
       <button
         type="button"
-        onClick={setLoggedIn}
+        onClick={changeLogin}
         data-testid="test-button-sign-out"
       >Sign Out</button>
      

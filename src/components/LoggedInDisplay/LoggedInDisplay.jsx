@@ -1,12 +1,20 @@
 import React from 'react';
-import Profile from '../Profile/Profile'
 import ArticleDisplay from '../ArticleDisplay/ArticleDisplay'
+import Profile from '../Profile/Profile'
 
+
+// function LoggedInDisplay(props) {
+//   const { showLoggedInForms, setLoggedInForms } = props;
+//   return (
+//     <div>{showLoggedInForms ?  <LoggedInForms /> : <ArticleDisplay  showLoggedInForms={showLoggedInForms}
+//     setLoggedInForms={setLoggedInForms}/> }</div>
+//   );
+// }
 
 function LoggedInDisplay(props) {
-  const { showProfile } = props;
+  const { showProfile, editProfile, changeProfileDetails } = props;
   return (
-    <div data-testid="test-logged-in-display">{showProfile ?  <Profile data-testid="test-profile-display"/> : <ArticleDisplay data-testid="test-article-display" /> }</div>
+    <div>{showProfile ?  <Profile editProfile={editProfile} changeProfileDetails={changeProfileDetails} /> : <ArticleDisplay /> }</div>
   );
 }
 

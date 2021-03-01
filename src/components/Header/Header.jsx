@@ -3,7 +3,7 @@ import './Header.css';
 import LoggedInButtons from '../LoggedInButtons/LoggedInButtons';
 
 function Header(props) {
-  const { isSignedUp, setSignUp, isLoggedIn, setLoggedIn, showProfile, openProfile } = props;
+  const { isSignedUp, setSignUp, isLoggedIn, setLoggedIn, changeLogin, showProfile, openProfile } = props;
 
   function changeSignUp() {
     setSignUp(!isSignedUp);
@@ -27,6 +27,7 @@ function Header(props) {
             openProfile={openProfile}
             isLoggedIn={isLoggedIn}
             setLoggedIn={setLoggedIn}
+            changeLogin={changeLogin}
        />)}
     </header>
   );
