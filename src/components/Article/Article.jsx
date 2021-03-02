@@ -1,20 +1,6 @@
 import React from 'react';
 import './Article.css';
 
-// function displayArticles () {
-
-//   console.log(articles);
-
-//   return (
-//     <div>
-//     <h2>Name</h2>
-//     <div>id</div>
-//     </div>
-//   )
-// }
-
-// export default displayArticles
-
 export default function displayArticles(articles) {
   const {
     title, description, usersLiked, usersDisliked,

@@ -6,7 +6,6 @@ function Profile(props) {
   const { editProfile, changeProfileDetails } = props;
   return (
     <div>
-      <h1>Profile</h1>
       <div>{editProfile ?  <EditProfile editProfile={editProfile} changeProfileDetails={changeProfileDetails} /> : <ShowProfile editProfile={editProfile} changeProfileDetails={changeProfileDetails}  /> }</div>
     </div>
   );

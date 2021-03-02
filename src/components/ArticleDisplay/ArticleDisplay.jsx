@@ -1,28 +1,18 @@
 import React from 'react';
-import articles from '../../mock-data/mock-data';
-import Article from '../Article/Article';
 import './ArticleDisplay.css';
+import AddArticle from '../AddArticle/AddArticle';
+import ShowArticles from '../ShowArticles/ShowArticles'
 
 function ArticleDisplay(props) {
-  const { showLoggedInForms, setLoggedInForms } = props;
-
-  function openLoggedInForms() {
-      setLoggedInForms(!showLoggedInForms);
-    }
+  const { addArticle, setAddArticle } = props;
   
   return (
-    <div className="article-display">
-      <h1>Articles</h1>
-      {/* <button type="button" onClick={openLoggedInForms}>Add Article</button> */}
-      { articles.map((article) => (
-        <Article
-          key={article.id}
-          title={article.title}
-          description={article.description}
-          usersLiked={article.usersLiked}
-          usersDisliked={article.usersDisliked}
-        />
-      ))}
+    <div>
+        <h1>Articles</h1>
+        <div>{addArticle ?  <AddArticle addArticle={addArticle} 
+        setAddArticle={setAddArticle} /> : <ShowArticles addArticle={addArticle} 
+        setAddArticle={setAddArticle} />}
+        </div>
     </div>
   );
 }

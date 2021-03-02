@@ -10,6 +10,12 @@ function ShowProfile(props) {
   return (
     <div>
       <h1>Show Profile</h1>
+      <p>
+      <span>Rianne</span>
+      <span>Streef</span>
+      </p>
+      <p>Email: <span>riannestreef@gmail.com</span></p>
+      <img src="../img/icon-red.png" alt="You!" />
       <button type="button" onClick={showEditProfile}>Edit Profile</button>
     </div>
   );

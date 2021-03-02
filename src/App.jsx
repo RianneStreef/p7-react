@@ -9,7 +9,7 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isSignedUp, setSignUp] = useState(true);
   const [articles, setArticles] = useState([]);
-  const [showLoggedInForms, setLoggedInForms] = useState(false)
+  const [addArticle, setAddArticle] = useState(false)
   const [showProfile, openProfile] = useState(false);
   const [editProfile, changeProfileDetails] = useState(false);
 
@@ -52,8 +52,8 @@ function App() {
           isLoggedIn={isLoggedIn}
           isSignedUp={isSignedUp}
           articles={articles}
-          showLoggedInForms={showLoggedInForms}
-          setLoggedInForms={setLoggedInForms}
+          addArticle={addArticle}
+          setAddArticle={setAddArticle}
           showProfile={showProfile}
           editProfile={editProfile}
           changeProfileDetails={changeProfileDetails}

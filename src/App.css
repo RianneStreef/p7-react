@@ -29,3 +29,7 @@ button {
   flex-direction: row;
   justify-content: center;
 }
+
+#password {
+  -webkit-text-security: disc;
+}
