@@ -6,7 +6,7 @@ export default function displayArticles(articles) {
     title, description, usersLiked, usersDisliked,
   } = articles;
   return (
-    <div className="article-container">
+    <div className="card articleCard">
       {/* <a href='http://www.google.com'>  */}
       <h3>{title}</h3>
       <div>{description}</div>

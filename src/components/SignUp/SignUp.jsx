@@ -22,7 +22,7 @@ function signUp() {
   const { email, password, first, last } = signUpDetails;
 
   return (
-    <div className="sign-up">
+    <div className="sign-up card">
       <h1>Sign Up</h1>
       <form>
         <div className="form-group">

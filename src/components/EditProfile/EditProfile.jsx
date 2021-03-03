@@ -28,9 +28,12 @@ function EditProfile(props) {
   const { email, password, first, last, picture } = userDetails;
 
   return (
-    <div>
+    <div className="card">
+          <div className="cardTitle">
+
       <h1>Edit Profile</h1>
       <button type="button" onClick={closeEditProfile}>X</button>
+      </div>
 
       <form>
         <div className="form-group">
@@ -66,7 +69,7 @@ function EditProfile(props) {
     
 
         <div className="button-container">
-          <button type="submit">Save changes</button>
+          <button type="submit">Save</button>
         </div>
       </form>
 

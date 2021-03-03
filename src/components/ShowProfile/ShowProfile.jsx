@@ -8,8 +8,8 @@ function ShowProfile(props) {
     console.log('change state edit profile to true')
   }
   return (
-    <div>
-      <h1>Show Profile</h1>
+    <div className="card">
+      <h1>Profile</h1>
       <p>
       <span>Rianne</span>
       <span>Streef</span>

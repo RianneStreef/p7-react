@@ -27,9 +27,11 @@ const handleInput = (event) => {
 const { title, description, url, usersLiked, usersDisliked } = articleDetails;
 
 return (
-  <div>
-    <h1>Add Article</h1>
+  <div className="card">
+    <div className="cardTitle">
+  <h1>Add Article</h1>
     <button type="button" onClick={closeAddArticle}>X</button>
+    </div>
     <form>
         <div className="form-group">
           <label htmlFor="title">

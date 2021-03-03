@@ -17,10 +17,11 @@ function Login() {
     });
   };
 
+
   const { email, password } = userDetails;
 
   return (
-    <div className="login">
+    <div className="login card">
       <h1>Login</h1>
       <form>
         <div className="form-group">
