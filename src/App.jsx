@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'
+import './App.css';
 import Header from './components/Header/Header';
 import FormToDisplay from './components/FormToDisplay/FormToDisplay';
 import LoggedInDisplay from './components/LoggedInDisplay/LoggedInDisplay';
@@ -9,7 +9,7 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isSignedUp, setSignUp] = useState(true);
   const [articles, setArticles] = useState([]);
-  const [addArticle, setAddArticle] = useState(false)
+  const [addArticle, setAddArticle] = useState(false);
   const [showProfile, openProfile] = useState(false);
   const [editProfile, changeProfileDetails] = useState(false);
 
@@ -23,10 +23,13 @@ function App() {
     //    function.
     // fetchData() function will add the API call data to your state
     function fetchData() {
-      fetch('http://localhost:3000/api/articles')
+      console.log('Fetching data');
+      fetch('http://localhost:3011/api/articles')
         .then((response) => response.json())
-        .then((json) => setArticles(json));
-      setArticles();
+        .then((json) => {
+          console.log(json);
+          return setArticles(json.articles);
+        });
     }
 
     fetchData();
